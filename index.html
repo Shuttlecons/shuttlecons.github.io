@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>魚雁顧問有限公司 | Shuttle Cons</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+
+
+
+</head>
+<style>
+html:not(.aos-initialized) [data-aos] {
+  opacity: 1;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
+    line-height: 1.8;
+}
+
+/* ===== 共用 ===== */
+.section {
+    padding: 100px 64px;
+}
+
+.section.soft {
+    background: #f7f9fc;
+}
+
+.section.dark {
+    background: linear-gradient(135deg, #0f1220, #1b1f3b);
+    color: #ffffff;
+}
+
+.section-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.section-subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    opacity: 0.6;
+    margin-bottom: 72px;
+}
+
+/* ===== Hero ===== */
+.hero {
+    position: relative;
+    padding: 140px 64px 120px;
+    background: linear-gradient(135deg, #f7f9fc, #ffffff);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.hero p {
+    max-width: 720px;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.hero span {
+    display: block;
+    margin-top: 20px;
+    letter-spacing: 4px;
+    color: #0084d5;
+    font-size: 0.9rem;
+}
+/*  LOGO ICON */
+.hero .logo-placeholder {
+    position: absolute;
+    top: 35px;
+    left: 65px;
+    background: var(--secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== Scroll ===== */
+.scroll_box {
+  position: absolute;
+  bottom: 35vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.scroll_box .scroll_text {
+  font-size: 0.7em;
+  letter-spacing: 0.15rem;
+  text-align: center;
+  width: 100%;
+}
+.scroll_box .js-scroll {
+  position: absolute;
+  bottom: -88px;
+  left: 50%;
+  transform: rotate(90deg) translateX(-100%);
+  transform-origin: left bottom;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 0.5em;
+  will-change: opacity;
+  font-style: normal;
+}
+.scroll_box .js-scroll .scroll-line {
+  width: 80px;
+  height: 1px;
+  background-color: #fff;
+  background: linear-gradient(to right, #ffffff, #000000);
+  margin-top: -1px;
+  display: block;
+  animation: animate 2s infinite;
+}
+@keyframes animate {
+  0% {
+    opacity: 0;
+    transform-origin: 0% 50%;
+    transform: translate3d(0px, 0px, 0px) scale(0.0001, 1);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform-origin: 0% 50%;
+    transform: translate3d(0px, 0px, 0px) scale(0.9999, 1);
+  }
+}
+#intro-section {
+  color: #282828;
+  letter-spacing: 0.5px;
+}
+
+#about-section {
+  padding-top: 120px;
+  padding-bottom: 130px;
+  z-index: 0;
+}
+/* ===== Intro ===== */
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+}
+
+.intro-grid h3 {
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+}
+
+.intro-grid p {
+    color: #555;
+}
+
+/* ===== Services ===== */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 48px;
+}
+
+.service-item h4 {
+    font-size: 1.4rem;
+    margin-bottom: 14px;
+}
+
+.service-item p {
+    color: #555;
+}
+
+/* ===== Flow ===== */
+.flow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 48px;
+}
+
+.flow-item span {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #0084d5;
+}
+
+.flow-item h4 {
+    margin: 12px 0;
+    font-size: 1.2rem;
+}
+
+.flow-item p {
+    color: #555;
+}
+
+/* ===== About ===== */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* ===== Why Us ===== */
+.reason-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+}
+
+.reason-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    border-radius: 16px;
+    background: #0055a3;
+    color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.reason-item:hover {
+
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+.reason-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.reason-item p {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+/* ===== Contact ===== */
+.contact-box {
+    max-width: 520px;
+    padding: 48px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(14px);
+}
+
+.contact-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.contact-title {
+    margin-left: 12px;
+    font-size: 0.85rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.15);
+}
+
+.contact-info {
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 20px;
+}
+
+.contact-item {
+    font-size: 1.05rem;
+    line-height: 2;
+}
+
+.contact-item a {
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+}
+
+/* ===== Footer ===== */
+footer {
+    padding: 20px 0 20px;
+    text-align: center;
+    color: #888;
+    font-size: 0.85rem;
+}
+
+/* ===== RWD ===== */
+
+@media (max-width: 1200px) {
+        .scroll_box {
+        bottom: 35vh;
+    }
+    }
+
+@media (max-width: 900px) {
+    .section,
+    .hero {
+        padding: 110px 24px;
+    }
+    .hero .logo-placeholder {
+    position: absolute;
+    top: 35px;
+    left: 35px;
+    }
+
+    .intro-grid,
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .scroll_box {
+        bottom: 25vh;
+    }
+
+    .scroll_box .scroll_text {
+        font-size: 0.6em; 
+    }
+
+    .scroll_box .js-scroll {
+        font-size: 0.4em; 
+    }
+
+}
+</style>
+
+
+<body>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="logo-placeholder"><img src="logo.png" width="45" height="71" alt="一張圖片" /></div>
+    <h1>魚雁顧問有限公司</h1>
+    <p>
+        Shuttle Cons 專注於會議與研討活動顧問服務，
+        協助客戶從規劃到執行，讓每一場活動都有清楚結構與專業品質
+    </p><br>
+     <p>
+        多次與大專院校及知名企業合作，
+        累積豐富的會議與研討活動執行經驗，
+        能精準掌握不同對象需求，確保活動成果與專業價值。
+    </p>
+
+    <span>SHUTTLE CONS</span>
+</section>
+
+
+<div class="scroll_box container-fluid">
+      <a class="btn-link text-white text-decoration-none" >
+        <div class="position-relative d-flex justify-content-center">
+          <div class="d-flex justify-content-center align-content-center">
+            <div class="scroll_text" style="color: #000;">
+              <div>SCROLL</div>
+              <div>DOWN</div>
+              <div>往下滑</div>
+            </div>
+          </div>
+          <div class="js-scroll" style="opacity: 1;">
+            <div class="scroll-line"></div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+<!-- What We Do -->
+<section class="section soft">
+    <h2 class="section-title" data-aos="fade-up">我們在做什麼</h2>
+    <div class="section-subtitle">WHAT WE DO</div>
+
+    <div class="intro-grid">
+        <div>
+            <h3>不只是活動執行</h3>
+            <p>
+                我們協助客戶釐清活動目的、對象與限制條件，
+                將複雜需求轉化為清楚可執行的流程設計。
+            </p>
+        </div>
+        <div>
+            <h3>結構與細節並重</h3>
+            <p>
+                Shuttle Cons 重視每個細節，
+                讓主辦單位、講者與參與者都能安心投入活動本身。
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Services -->
+<section class="section">
+    <h2 class="section-title" data-aos="fade-up">專業服務</h2>
+    <div class="section-subtitle">SERVICES</div>
+
+    <div class="services-grid">
+        <div class="service-item">
+            <h4>會議 / 研討會</h4>
+            <p>各類型會議、論壇與研討活動之整合規劃與執行</p>
+        </div>
+        <div class="service-item">
+            <h4>客製化規劃</h4>
+            <p>依活動性質與需求，量身打造最適合的流程設計</p>
+        </div>
+        <div class="service-item">
+            <h4>講師聯繫</h4>
+            <p>協助媒合合適講者，確保內容品質與專業度</p>
+        </div>
+        <div class="service-item">
+            <h4>流程協助</h4>
+            <p>活動當日流程控管與現場支援，降低執行風險</p>
+        </div>
+    </div>
+</section>
+
+<!-- Flow -->
+<section class="section soft">
+    <h2 class="section-title" data-aos="fade-up">服務流程</h2>
+    <div class="section-subtitle">WORK FLOW</div>
+
+    <div class="flow-grid">
+        <div class="flow-item" data-aos="zoom-in" data-aos-delay="0">
+            <span>01</span>
+            <h4>需求討論</h4>
+            <p>了解活動目標與核心需求</p>
+        </div>
+
+        <div class="flow-item" data-aos="zoom-in" data-aos-delay="100">
+            <span>02</span>
+            <h4>規劃設計</h4>
+            <p>提出流程架構與執行建議</p>
+        </div>
+
+        <div class="flow-item" data-aos="zoom-in" data-aos-delay="200">
+            <span>03</span>
+            <h4>整合協調</h4>
+            <p>整合講師、場地與相關單位</p>
+        </div>
+
+        <div class="flow-item" data-aos="zoom-in" data-aos-delay="300">
+            <span>04</span>
+            <h4>現場執行</h4>
+            <p>流程控管與即時應變支援</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- About -->
+<section class="section">
+    <h2 class="section-title" data-aos="fade-up">關於 Shuttle Cons</h2>
+    <div class="section-subtitle">ABOUT</div>
+
+    <div class="about-grid">
+        <img src="meeting.jpg" alt="一張圖片" style="border-radius: 15px;max-width: 100%; height: auto; "/>
+        <div>
+            <p>
+                我們專注於會議與活動顧問服務，
+                提供從前期策略規劃、主題定位、流程設計，到現場執行與細節控管的一站式整合支援，
+                協助客戶在有限時間與資源下，清楚梳理方向，確保活動順利推進。<br><br>
+                Shuttle Cons 相信，專業、清楚的結構與良好的設計感可以並存。
+                透過縝密的規劃、有效的溝通與對細節的高度重視，
+                讓每一場活動不只是被完成，而是具備一致性、記憶點與整體品質，
+                為主辦單位與參與者留下值得信賴且深刻的好印象。
+            </p>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Why Us -->
+ <section class="section soft">
+    <h2 class="section-title" data-aos="fade-up">為什麼選擇 Shuttle Cons</h2>
+    <div class="section-subtitle">WHY US</div>
+
+    <div class="reason-grid">
+        <div class="reason-item">
+            <div class="reason-icon">✓</div>
+            <p>熟悉各類型會議與研討活動流程</p>
+        </div>
+        <div class="reason-item">
+            <div class="reason-icon">✓</div>
+            <p>重視前期溝通與規劃，降低執行風險</p>
+        </div>
+        <div class="reason-item">
+            <div class="reason-icon">✓</div>
+            <p>能有效整合講師、單位與主辦方</p>
+        </div>
+        <div class="reason-item">
+            <div class="reason-icon">✓</div>
+            <p>多場大型會議經驗，辦事放心可靠</p>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Contact -->
+<section class="section dark">
+    <h2 class="section-title">聯絡我們</h2>
+    <div class="section-subtitle">CONTACT</div>
+
+    <div class="contact-box">
+        <div class="contact-name">
+            康偉玲 <span class="contact-title">經理</span>
+        </div>
+
+        <div class="contact-info">
+            <div class="contact-item">電話　<a href="tel:+886-975461818">0975 461 818</a></div>
+            <div class="contact-item">LINE　0975461818</div>
+            <div class="contact-item">
+                Email　
+                <a href="mailto:shuttle.cons@gmail.com">
+                    shuttle.cons@gmail.com
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2025 Shuttle Cons. All rights reserved.
+</footer>
+
+
+
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: false
+    });
+  });
+</script>
+</body>
+</html>
